@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Форма користувача</title>
+</head>
+<body>
+<h1>Форма користувача</h1>
+
+<!-- Форма для додавання/редагування користувача -->
+<form th:action="@{${action}}" method="post">
+  <label for="name">Ім'я:</label>
+  <input type="text" id="name" name="name" th:value="${user.name}">
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" th:value="${user.email}">
+
+  <button type="submit">Зберегти</button>
+</form>
+
+<!-- Посилання на повернення до списку користувачів -->
+<a th:href="@{/users}">Повернутись до списку</a>
+</body>
+</html>

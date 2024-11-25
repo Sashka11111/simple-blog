@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Деталі поста</title>
+</head>
+<body>
+<h1>Деталі поста</h1>
+
+<!-- Виведення даних про пост -->
+<p><strong>Заголовок:</strong> <span th:text="${post.title}">Заголовок поста</span></p>
+<p><strong>Вміст:</strong> <span th:text="${post.content}">Вміст поста</span></p>
+<p><strong>Автор:</strong> <span th:text="${post.author.name}">Ім'я автора</span></p>
+
+<!-- Посилання на редагування поста -->
+<a th:href="@{/posts/edit/{id}(id=${post.id})}">Редагувати</a> |
+<!-- Посилання на повернення до списку постів -->
+<a th:href="@{/posts}">Повернутись до списку</a>
+</body>
+</html>

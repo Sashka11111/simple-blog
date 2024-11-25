@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список постів</title>
+</head>
+<body>
+<h1>Список постів</h1>
+
+<!-- Кнопка для додавання нового посту -->
+<a href="/posts/new">Додати новий пост</a>
+
+<!-- Таблиця з постами -->
+<table border="1">
+  <thead>
+  <tr>
+    <th>Назва</th>
+    <th>Автор</th>
+    <th>Дії</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Для кожного поста в списку відобразити рядок -->
+  <tr th:each="post : ${posts}">
+    <td th:text="${post.title}">Назва посту</td>
+    <td th:text="${post.content}">Вміст</td>
+    <td th:text="${post.authorName}">Автор</td>
+    <td>
+      <!-- Посилання для перегляду деталей посту -->
+      <a th:href="@{/posts/{id}(id=${post.id})}">Переглянути</a> |
+      <!-- Посилання для редагування посту -->
+      <a th:href="@{/posts/edit/{id}(id=${post.id})}">Редагувати</a> |
+      <!-- Посилання для видалення посту -->
+      <a th:href="@{/posts/delete/{id}(id=${post.id})}" onclick="return confirm('Ви дійсно хочете видалити пост?')">Видалити</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

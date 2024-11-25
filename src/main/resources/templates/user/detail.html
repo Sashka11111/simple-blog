@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Деталі користувача</title>
+</head>
+<body>
+<h1>Деталі користувача</h1>
+
+<!-- Виведення даних про користувача -->
+<p><strong>Ім'я:</strong> <span th:text="${user.name}">Ім'я користувача</span></p>
+<p><strong>Електронна пошта:</strong> <span th:text="${user.email}">Електронна пошта користувача</span></p>
+
+<!-- Посилання на редагування користувача -->
+<a th:href="@{/users/edit/{id}(id=${user.id})}">Редагувати</a> |
+<!-- Посилання на повернення до списку користувачів -->
+<a th:href="@{/users}">Повернутись до списку</a>
+</body>
+</html>

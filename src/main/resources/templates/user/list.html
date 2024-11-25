@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список користувачів</title>
+</head>
+<body>
+<h1>Список користувачів</h1>
+
+<!-- Кнопка для додавання нового користувача -->
+<a href="/users/new">Додати нового користувача</a>
+
+<!-- Таблиця з користувачами -->
+<table border="1">
+  <thead>
+  <tr>
+    <th>Ім'я</th>
+    <th>Електронна пошта</th>
+    <th>Дії</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Для кожного користувача в списку відобразити рядок -->
+  <tr th:each="user : ${users}">
+    <td th:text="${user.name}">Ім'я</td>
+    <td th:text="${user.email}">Електронна пошта</td>
+    <td>
+      <!-- Посилання для перегляду деталей користувача -->
+      <a th:href="@{/users/{id}(id=${user.id})}">Переглянути</a> |
+      <!-- Посилання для редагування користувача -->
+      <a th:href="@{/users/edit/{id}(id=${user.id})}">Редагувати</a> |
+      <!-- Посилання для видалення користувача -->
+      <a th:href="@{/users/delete/{id}(id=${user.id})}" onclick="return confirm('Ви дійсно хочете видалити користувача?')">Видалити</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

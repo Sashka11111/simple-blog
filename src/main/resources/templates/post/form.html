@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Форма поста</title>
+</head>
+<body>
+<h1>Форма поста</h1>
+
+<!-- Форма для додавання/редагування поста -->
+<form th:action="@{${action}}" method="post">
+  <label for="title">Заголовок:</label>
+  <input type="text" id="title" name="title" th:value="${post.title}" required>
+
+  <label for="content">Вміст:</label>
+  <textarea id="content" name="content" th:text="${post.content}" required></textarea>
+
+  <label for="authorName">Автор:</label>
+  <input type="text" id="authorName" name="authorName" th:value="${post.authorName}" required>
+
+  <button type="submit">Зберегти</button>
+</form>
+
+
+<!-- Посилання на повернення до списку постів -->
+<a th:href="@{/posts}">Повернутись до списку</a>
+
+</body>
+</html>
